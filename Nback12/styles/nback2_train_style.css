@@ -1,0 +1,38 @@
+html{
+    background: grey;
+}
+
+.container{
+
+    width: fit-content;
+    height: fit-content;
+    display: grid;
+    grid-template-columns: 150px 150px 150px;
+    grid-template-rows: 150px 150px 150px;
+    grid-gap: 3px;
+    background: black;
+    border: 3px solid black;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.item{
+    background: lightgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+p {
+    font-size: larger;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    margin: 2px;
+}
+
+img {
+    width: 150px;
+    height: 150px;
+
+}

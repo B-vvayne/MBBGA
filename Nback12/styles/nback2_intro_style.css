@@ -1,0 +1,22 @@
+html{
+    background-color: grey;
+}
+
+div{
+    width: fit-content;
+    background-color: lightgray;
+    margin: 200px auto;
+}
+
+p{
+    color: white;
+    font-weight: bold;
+    font-size: larger;
+    margin: 2px;
+    text-align: center;
+}
+
+span{
+    color: yellow;
+}
+

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewpoint"
+        content="width=device-width, initial-scale=1.0"/>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="style_dual.css" />
+    </head>
+    <body>
+        <div class="container">
+            <h3>
+                回忆验证码
+                
+            </h3>
+            <div class="code_show">
+                <span class="code" id="checkCode"></span>
+            </div>
+            <h3>
+                记忆过的验证码按左键，未记忆过的按右键
+            </h3>
+            
+            <button id="start-btn">Start</button>
+            
+            
+            
+        </div>
+        
+        <script>
+            // 另一个网页读取数据
+            let storedArr = JSON.parse(localStorage.getItem('codeArr'));
+            let storedArrCopy = storedArr.slice();
+            const startBtn = document.getElementById("start-btn");
+            let numCor = 0;        
+            let sec = 0;
+
+            for (var ind = 0;ind < 5;ind++){
+                storedArr.push(getCode(4));
+                console.log(storedArr);
+            }
+            //打乱数组开始回忆训练
+            storedArr = shuffleArr(storedArr);
+            
+            //顺序显示
+            startBtn.addEventListener("click", () => {
+                
+                document.getElementById('checkCode').innerText = storedArr[sec];
+            });
+
+            function handleKeyPress (event) {
+                var keyNum = event.key;
+                if (keyNum === "ArrowLeft") {
+                    if (storedArrCopy.includes(storedArr[sec])) {
+                        numCor++;
+                    }
+                }
+                if (keyNum === "ArrowRight") {
+                    if (storedArrCopy.includes(storedArr[sec])) {
+                        
+                    } else {
+                        numCor++;
+                    }
+                }
+                sec ++;
+                if (sec >= 10) {
+                    alert(numCor);
+                }
+                document.getElementById('checkCode').innerText = storedArr[sec];
+                
+            }
+
+            function getCode(n){
+                var arr = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f'];
+                var str = '';
+                for (var i = 0;i<n;i++){
+                    var num = Math.round(Math.random()*(15-0)+0);
+                    str += arr[num];
+                }
+                return str;
+            }
+
+            function shuffleArr(arr) {
+                for (let i = arr.length - 1; i>0 ; i--) {
+                    let j = Math.floor(Math.random()*(i+1));
+                    [arr[i],arr[j]] = [arr[j],arr[i]];
+                }
+                return arr;
+            }
+
+            document.addEventListener('DOMContentLoaded',function(){
+                document.addEventListener('keydown',handleKeyPress)  
+                });
+        </script>
+
+    </body>
+
+
+
+    
+</html>

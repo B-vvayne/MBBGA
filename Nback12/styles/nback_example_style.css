@@ -1,0 +1,31 @@
+p {
+    text-align: center;
+    font-size: large;
+}
+
+.container {
+    display: grid;
+    grid-template-columns:150px 150px 150px;
+    grid-template-rows:150px 150px 150px;
+    grid-gap: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+}
+
+.item {
+    display: flex;
+    background-color: gray;
+    align-items: center;
+    justify-content: center;
+}
+
+.container span {
+    color: white;
+    font-size: 40px;
+}
+
+
+
+
+

@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>状态上传</title>
+    <link rel = "stylesheet" href = "../css/state.css">
+    <style>
+        .container {
+            display: grid;
+            justify-items: center;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px; /* 控件之间的间距 */
+            margin: 0 auto; 
+            background-color: white;
+            width: 70%;
+            border-radius: 10px;
+            text-shadow: 100px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+        }
+        .label {
+            text-align: right; /* 标签右对齐 */
+            padding-right: 10px; /* 标签和滑块之间的间距 */
+            width:100px;
+            font-weight: 300;
+        }
+        .slider {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            width: 77%;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            
+        }
+        .slider input {
+            margin: 16px 0px;
+            margin-right: 5px;
+        }
+        .num {
+            margin: 10px 10px;
+            z-index: 1;
+            margin-right: 0px;
+        }
+        .input {
+            margin-right: -5px;
+            -webkit-appearance: none; /* 清除默认样式 */
+            appearance: none;
+            width: 55%; 
+            height: 11px; 
+            border-radius: 5px; 
+            /* background: #ddd; */
+            background: linear-gradient(to right, #50c3a1 0%, #50c3a1 var(--value), #ddd var(--value), #ddd 100%);
+
+            /* background: linear-gradient(to right, #4CAF50 50%, white 50%); 初始背景渐变 */
+            outline: none;
+            opacity: 0.8;
+            -webkit-transition: .2s;
+            transition: opacity .2s; 
+            position: relative;
+        }
+
+        .input:hover {
+            opacity: 1;
+        }
+
+        .input::-webkit-slider-thumb {
+            -webkit-appearance: none; /* 清除默认样式 */
+            appearance: none;
+            width: 18px; /* 滑块的宽度 */
+            height: 18px; /* 滑块的高度 */
+            border-radius: 50%; /* 圆形滑块 */
+            background: #50c3a1;  /*滑块颜色 */
+
+            cursor: pointer;
+            position: relative;
+            z-index: 2;
+        }
+
+        .input::-moz-range-thumb {
+            width: 18px; /* 滑块的宽度 */
+            height: 18px; /* 滑块的高度 */
+            border-radius: 50%; /* 圆形滑块 */
+            background: #50c3a1; /* 滑块颜色 */
+            cursor: pointer;
+            position: relative;
+            z-index: 2;
+        }
+        /* .input::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background: #4CAF50; /* 滑块左边的颜色 */
+            /*z-index: 1;
+        } */
+        .part{
+            margin-top: 30px;
+            margin-bottom: 40px;
+            background-color: #5BD3AF;
+            width: 100px;
+            height: 40px;
+            display: flex;
+            justify-content: center; /* 水平居中 */
+            align-items: center; /* 垂直居中 */
+            margin-left: 10%;
+            border-right: 2px solid #FFC107;
+            font-size: 17px;
+            font-weight: 350;
+        }
+        .upload {
+            /* 横向导航栏的父容器布局 */
+            /* 设置为 Flex 弹性布局 */
+            /* display: flex; */
+            /* 高度设置为 64 像素 */
+            height: 35px;
+            /* 设置 上下 3 像素外边距 左右 4 像素外边距 */
+            margin-top: 50px;
+            /* 设置白色背景 */
+            background-color: #fff;
+            /* 设置圆角矩形半径 */
+            border-radius: 4px;
+        }
+
+        .upload li {
+            /* 5 个 li , 每个占据宽度的 1/5 */
+            display: flex;
+            /* 主轴设置为 y 轴 */
+            flex-direction: column;
+            /* 水平方向居中对齐 , 即 侧轴方向 ( x 轴方向 ) 居中对齐 */
+            align-items: center;
+            /* 字体大小设置为 12 像素 */
+            font-size: 20px;
+            color: #000;
+            flex: 1;
+            background-color:none;
+            margin: 0px 0px; 
+        }
+        a:link,a:visited
+
+        {
+
+        display:block;
+
+        width:170px;
+
+        font-weight:400;
+
+        color:#000;
+
+        background-color: #5BD3AF;
+
+        text-align:center;
+
+        padding:5px;
+
+        text-decoration:none;
+
+        text-transform:uppercase;
+
+        border-radius: 8px;
+
+        }
+        /* a {
+            color: #FFF;
+            /* 取消链接的下划线样式 */
+            /*text-decoration: none;
+        } */
+
+    </style>
+</head>
+<body>
+    <img src="../img/point.png" class = "point">
+    <h1 class = "title">状态评估</h1>
+    <h2 class = "intro">请根据您的量表填写情况，并结合过去两周内的实际状态，完成下列内容的分数填写。</h2>
+    <h2 class = "part">客观结果</h2>
+    <div class="container">
+        <div class="slider">
+            <label class="label" for="salary1">视觉再生</label>
+            <input class="input" type="range" id="salary1" name="salary1" max="10" min="0" onchange="document.getElementById('show1').innerHTML=this.value">
+            <span class="num" id="show1"></span>
+        </div>
+        <div class="slider">
+            <label class="label" for="salary2">瞬时记忆</label>
+            <input class="input" type="range" id="salary2" name="salary2" max="10" min="0" onchange="document.getElementById('show2').innerHTML=this.value">
+            <span class="num" id="show2"></span>
+        </div>
+        <div class="slider">
+            <label class="label" for="salary3">再认</label>
+            <input class="input" type="range" id="salary3" name="salary3" max="10" min="0" onchange="document.getElementById('show3').innerHTML=this.value">
+            <span class="num" id="show3"></span>
+        </div>
+        <div class="slider">
+            <label class="label" for="salary4">文字逻辑记忆</label>
+            <input class="input" type="range" id="salary4" name="salary4" max="10" min="0" onchange="document.getElementById('show4').innerHTML=this.value">
+            <span class="num" id="show4"></span>
+        </div>
+        <div class="slider">
+            <label class="label" for="salary5">文字逻辑回忆</label>
+            <input class="input" type="range" id="salary5" name="salary5" max="10" min="0" onchange="document.getElementById('show5').innerHTML=this.value">
+            <span class="num" id="show5"></span>
+        </div>
+        <div class="slider">
+            <label class="label" for="salary6">图片记忆</label>
+            <input class="input" type="range" id="salary6" name="salary6" max="10" min="0" onchange="document.getElementById('show6').innerHTML=this.value">
+            <span class="num" id="show6"></span>
+        </div>
+        <div class="slider">
+            <label class="label" for="salary7">联想记忆</label>
+            <input class="input" type="range" id="salary7" name="salary7" max="10" min="0" onchange="document.getElementById('show7').innerHTML=this.value">
+            <span class="num" id="show7"></span>
+        </div>
+        <div class="slider">
+            <label class="label" for="salary8">状态感知</label>
+            <input class="input" type="range" id="salary8" name="salary8" max="10" min="0" onchange="document.getElementById('show8').innerHTML=this.value">
+            <span class="num" id="show8"></span>
+        </div>
+    </div>
+    <h2 class = "part">主观感受</h2>
+    <div class="container">
+        <div class="slider">
+            <label class="label" for="salary9">精神</label>
+            <input class="input" type="range" id="salary9" name="salary9" max="10" min="0" onchange="document.getElementById('show9').innerHTML=this.value">
+            <span class="num" id="show9"+></span>
+        </div>
+        <div class="slider">
+            <label class="label" for="salary10">睡眠</label>
+            <input class="input" type="range" id="salary10" name="salary10" max="10" min="0" onchange="document.getElementById('show10').innerHTML=this.value">
+            <span class="num" id="show10"></span>
+        </div>
+        <div class="slider">
+            <label class="label" for="salary11">记忆</label>
+            <input class="input" type="range" id="salary11" name="salary11" max="10" min="0" onchange="document.getElementById('show11').innerHTML=this.value">
+            <span class="num" id="show11"></span>
+        </div>
+        <div class="slider">
+            <label class="label" for="salary12">效率</label>
+            <input class="input" type="range" id="salary12" name="salary12" max="10" min="0" onchange="document.getElementById('show12').innerHTML=this.value">
+            <span class="num" id="show12"></span>
+        </div>
+        <div class="slider">
+            <label class="label" for="salary13">心情</label>
+            <input class="input" type="range" id="salary13" name="salary13" max="10" min="0" onchange="document.getElementById('show13').innerHTML=this.value">
+            <span class="num" id="show13"></span>
+        </div>
+        <div class="slider">
+            <label class="label" for="salary14">食欲</label>
+            <input class="input" type="range" id="salary14" name="salary14" max="10" min="0" onchange="document.getElementById('show14').innerHTML=this.value">
+            <span class="num" id="show14"></span>
+        </div>
+
+    </div>
+    <ul class="upload">
+        <li>
+            <a href="../../index.html">
+               <span>上传</span>
+            </a>
+        </li>
+    </ul>
+    <!-- <script>
+        function updateSlider(slider) {
+            var value = (slider.value - slider.min) / (slider.max - slider.min) * 100;
+            slider.style.background = 'linear-gradient(to right, #4CAF50 ' + value + '%, white ' + value + '%)';
+            document.getElementById('show').innerHTML = slider.value;
+            console.log(slider.value)
+        }
+
+        // 初始化滑块背景
+        document.addEventListener("DOMContentLoaded", function() {
+            var slider = document.querySelector('.input');
+            console.log('input')
+            updateSlider(slider);
+            console.log(slider)
+        });
+    </script> -->
+    <script>
+        let data = []
+        let feel = []
+
+        const sliders = document.querySelectorAll('.input');
+        console.log(sliders)
+        sliders.forEach(input => {
+            const updateSliderValue = () => {
+                const value = input.value;
+                console.log(value)
+                const valueElement = document.getElementById(input.id);
+                console.log(valueElement)
+                valueElement.textContent = value;
+                input.style.setProperty('--value', (value*10) + '%');
+            };
+
+            input.addEventListener('input', updateSliderValue);
+
+            // 初始化滑块值
+            updateSliderValue();
+        });
+        //获取每个滑块数据
+         const slider1 = document.getElementById('salary1');
+         const slider1out = document.getElementById('show1');
+         const slider2 = document.getElementById('salary2');
+         const slider2out = document.getElementById('show2');
+         const slider3 = document.getElementById('salary3');
+         const slider3out = document.getElementById('show3');
+         const slider4 = document.getElementById('salary4');
+         const slider4out = document.getElementById('show4');
+         const slider5 = document.getElementById('salary5');
+         const slider5out = document.getElementById('show5');
+         const slider6 = document.getElementById('salary6');
+         const slider6out = document.getElementById('show6');
+         const slider7 = document.getElementById('salary7');
+         const slider7out = document.getElementById('show7');
+         const slider8 = document.getElementById('salary8');
+         const slider8out = document.getElementById('show8');
+
+         const slider9 = document.getElementById('salary9');
+         const slider9out = document.getElementById('show9');
+         const slider10 = document.getElementById('salary10');
+         const slider10out = document.getElementById('show10');
+         const slider11 = document.getElementById('salary11');
+         const slider11out = document.getElementById('show11');
+         const slider12 = document.getElementById('salary12');
+         const slider12out = document.getElementById('show12');
+         const slider13 = document.getElementById('salary13');
+         const slider13out = document.getElementById('show13');
+         const slider14 = document.getElementById('salary14');
+         const slider14out = document.getElementById('show14');
+        //监听，存储
+        //data
+         slider1.addEventListener('input', function() {
+            data[0] = slider1.value 
+            console.log(data)          
+        });
+        slider2.addEventListener('input', function() {
+            data[1] = slider2.value 
+            console.log(data)          
+        });
+        slider3.addEventListener('input', function() {
+            data[2] = slider3.value 
+            console.log(data)          
+        });
+        slider4.addEventListener('input', function() {
+            data[3] = slider4.value 
+            console.log(data)          
+        });
+        slider5.addEventListener('input', function() {
+            data[4] = slider5.value 
+            console.log(data)          
+        });
+        slider6.addEventListener('input', function() {
+            data[5] = slider6.value 
+            console.log(data)          
+        });
+        slider7.addEventListener('input', function() {
+            data[6] = slider7.value 
+            console.log(data)          
+        });
+        slider8.addEventListener('input', function() {
+            data[7] = slider8.value 
+            console.log(data)          
+        });
+        //feel
+        slider9.addEventListener('input', function() {
+            feel[0] = slider9.value 
+            console.log(feel)          
+        });
+        slider10.addEventListener('input', function() {
+            feel[1] = slider10.value 
+            console.log(feel)          
+        });
+        slider11.addEventListener('input', function() {
+            feel[2] = slider11.value 
+            console.log(feel)          
+        });
+        slider12.addEventListener('input', function() {
+            feel[3] = slider12.value 
+            console.log(feel)          
+        });
+        slider13.addEventListener('input', function() {
+            feel[4] = slider13.value 
+            console.log(feel)          
+        });
+        slider14.addEventListener('input', function() {
+            feel[5] = slider14.value 
+            console.log(feel)          
+        });
+    </script>
+</body>
+</html>

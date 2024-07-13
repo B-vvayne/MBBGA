@@ -1,0 +1,31 @@
+html {
+    background: grey;
+}
+
+div{
+    background: lightgray;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+p{
+    color: white;
+    font-weight: bold;
+    font-size: larger;
+    text-align: center;
+    margin: 2px;
+}
+
+span.yellow{
+    color: yellow !important;
+}
+
+span.purple{
+    color: purple !important;
+}
+
+span.red{
+    color: red !important;
+}
+

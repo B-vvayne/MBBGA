@@ -1,0 +1,12 @@
+/*文本内容居中*/
+h1,
+p {
+    text-align: center;
+}
+
+p{
+    margin: 0;
+}
+
+
+

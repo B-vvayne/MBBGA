@@ -1,0 +1,578 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="https://static.igem.wiki/common/icons/favicons/igem-2022.svg" />
+  <link rel="license" href="https://creativecommons.org/licenses/by/4.0/" />
+
+  <title>Home | MBBGA</title>
+
+</head>
+
+<style>
+  @font-face {
+    font-family: "Moon";
+    src: url("static/font/MoonTypeFreeDemo-gwjr5.otf");
+  }
+
+  @font-face {
+    font-family: "Milane";
+    src: url("static/font/MilanelloFree-51Lwv.otf");
+  }
+
+  @font-face {
+    font-family: "Tirto";
+    src: url("static/font/TirtoWritterRegular-Eajrl.ttf");
+  }
+</style>
+
+<body>
+  <!-- Navigation -->
+  <style>
+    .nav {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .block {
+      background: linear-gradient(to top, #5BD3AF 0%, #5BD3AF 50%, #51C9D9 100%);
+      height: 65px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .content {
+      width: 85%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo img {
+      width: 110px;
+    }
+
+    .login {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+
+    .login div {
+      width: 104px;
+      height: 48px;
+      border-radius: 10px;
+      background-color: #FFC107;
+      border: #FFC107;
+      /* color: #FFFFFF; */
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .login p {
+      height: fit-content;
+      color: #FFFFFF;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      font-size: 15px;
+    }
+  </style>
+
+  <nav class="nav">
+    <div class="block">
+      <div class="content">
+        <a href="index.html">
+          <div class="logo">
+            <img src="static/img/Logo.png">
+          </div>
+        </a>
+        <div class="login">
+          <a href="login/index.html">
+            <div style="background-color: transparent; border: transparent;">
+              <p style="color: #112211;">Login</p>
+            </div>
+          </a>
+          <a href="signup/index.html">
+            <div>
+              <p>Sign up</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-size: 18px;
+        letter-spacing: 1px;
+        color: #112211;
+        line-height: 32px;
+        /* text-align: justify; */
+      }
+
+      body {
+        height: 100vh;
+        width: 100%;
+        /* overflow: auto; */
+        /* overflow: hidden; */
+        position: relative;
+        background-color: #FAFBFC;
+      }
+
+      .container {
+        width: 100%;
+        min-width: 1260px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+      }
+
+      .shadow {
+        box-shadow: 0px 0px 10px #1122110b;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      p {
+        text-align: justify;
+      }
+    </style>
+
+    <style>
+      .block {
+        background: #FAFBFC;
+      }
+
+      .box1 {
+        width: 93.5%;
+        height: 552px;
+        background: linear-gradient(to top, #5BD3AF 0%, #5BD3AF 50%, #51C9D9 100%);
+        align-items: center;
+        justify-content: center;
+        border-radius: 24px;
+        margin-top: 25px;
+      }
+
+      .box {
+        height: 482px;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+      }
+
+      .Title {
+        display: flex;
+        flex-direction: column;
+        /* align-content: space-evenly; */
+        justify-content: space-between;
+        width: 55%;
+        height: 100%;
+        /* padding: 20px; */
+        padding-left: 50px;
+        padding-bottom: 40px;
+      }
+
+      .title {
+        height: fit-content;
+        /* color: #FFFFFF; */
+        margin-top: 80px;
+
+      }
+
+      .title h1 {
+        font-size: 96px;
+        height: 100px;
+        align-content: center;
+        color: #FFFFFF;
+        font-weight: 400;
+        margin-top: 30px;
+        /* font-family: 'Tirto'; */
+      }
+
+      .title p {
+        font-size: 42px;
+        color: #FFFFFF;
+        font-weight: 300;
+      }
+
+      .button {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 85%;
+      }
+
+      .button div {
+        width: 174px;
+        height: 68px;
+        background-color: transparent;
+        border: #FFFFFF solid 3px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .button p {
+        height: fit-content;
+        color: #FFFFFF;
+        font-size: 24px;
+        font-weight: 400;
+      }
+
+      .brain {
+        height: 100%;
+        /* display: flex; */
+        /* width: 100%; */
+        /* display: flex; */
+        /* flex-direction: row; */
+        /* justify-content: flex-end; */
+        z-index: 1;
+        position: absolute;
+        bottom: -70px;
+        left: 53%;
+      }
+
+      .box2 {
+        width: 85%;
+        height: 160px;
+        background-color: #FFFFFF;
+        /* box-shadow: 0px 4px 10px #11221109; */
+        z-index: 2;
+        margin-top: -70px;
+        border-radius: 16px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center
+      }
+
+      ._title {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 560px;
+        height: 160px;
+      }
+
+      ._title p {
+        font-size: 50px;
+        color: #112211;
+        font-weight: 400;
+        margin-left: 10px;
+      }
+    </style>
+    <div class="box1">
+      <div class="box">
+        <div class="Title">
+          <div class="title">
+            <p>Meet Your Brain Behind A Test</p>
+            <h1>MBBGA</h1>
+          </div>
+          <div class="button">
+            <div>
+              <p>
+                量表训练
+              </p>
+            </div>
+            <a href="zhuangtai/html/state.html">
+              <div>
+                <p>
+                  状态评估
+                </p>
+              </div>
+            </a>
+            <a href="tuijian/index.html">
+              <div>
+                <p>
+                  推荐方案
+                </p>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="brain">
+          <img src="static/img/brain.png">
+        </div>
+      </div>
+    </div>
+    <div class="box2 shadow">
+      <a href="jinglu/index.html">
+        <div class="_title">
+          <div>
+            <img src="static/img/test.png">
+          </div>
+          <p>经颅电刺激</p>
+        </div>
+      </a>
+      <div style="height: 103px;">
+        <img src="static/img/line.png">
+      </div>
+      <a href="renzhi/index.html">
+        <div class="_title">
+          <div>
+            <img src="static/img/star.png">
+          </div>
+          <p>认知训练</p>
+        </div>
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Footer: MUST mention license AND have a link to team wiki's repository on gitlab.igem.org -->
+  <style>
+    .footer {
+      width: 100%;
+      min-width: 1325px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 100px;
+      /* position: fixed; */
+      /* bottom: 0; */
+    }
+
+    .block1 {
+      background-color: rgb(179, 242, 220, 78%);
+      /* opacity: 78%; */
+      opacity: 1;
+      height: 268px;
+      width: 85%;
+      margin: 50px;
+      border-radius: 20px;
+      z-index: 3;
+      margin-bottom: -120px;
+      /* position: inherit; */
+    }
+
+    .content1 {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      margin: 0 20px 0px 20px;
+      height: 100%;
+      /* width: 660px; */
+    }
+
+    .question {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 40px 0px 40px 0px;
+      width: 60%;
+      height: 100%;
+    }
+
+    .question2 {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      height: 100%;
+      /* margin-top: -5px; */
+    }
+
+    .send {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-top: 8px;
+    }
+
+    .send input {
+      width: 584px;
+      /* margin: 10px; */
+      height: 56px;
+      background-color: #FFFFFF;
+      border-radius: 5px;
+      border: #FFFFFF;
+      /* opacity: 1; */
+      padding: 10px;
+    }
+
+    .send button {
+      width: 60px;
+      height: 56px;
+      background-color: #020402;
+      border-radius: 5px;
+      color: #FFFFFF;
+      border: #020402;
+      font-size: 14px;
+    }
+
+    .mailbox {
+      margin-left: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      height: 100%;
+    }
+
+    .mailbox img {
+      width: 375px;
+    }
+
+    .vector1 {
+      z-index: 1;
+      margin-bottom: -360px;
+      width: 100%;
+    }
+
+    .vector1 img {
+      width: 100%;
+    }
+
+    .block2 {
+      background: linear-gradient(to bottom, #5BD3AF 0%, #5BD3AF 50%, #51C9D9 100%);
+      height: 388px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      /* padding-bottom: 20px; */
+    }
+
+    .content2 {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+      justify-content: space-between;
+      width: 85%;
+      height: 100%;
+      border-bottom: solid 2px #FFC107;
+      padding-bottom: 15px;
+      z-index: 2;
+    }
+
+    .logo {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .logo img {
+      width: 120px;
+      margin-top: 15px;
+      margin-bottom: 8px;
+    }
+
+    .word {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+
+    .word div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-left: 60px;
+      margin-right: 40px;
+    }
+
+    .word p {
+      margin-bottom: 5px;
+    }
+
+    .word span {
+      font-size: 15px;
+      color: #1122119a;
+    }
+
+    .content3 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 80px;
+      z-index: 2;
+    }
+
+    .content3 p {
+      font-size: 15px;
+    }
+  </style>
+
+  <footer>
+    <div class="footer">
+      <div class="block1">
+        <div class="content1">
+          <div class="question">
+            <p style="font-size: 32px;">有疑问？欢迎反馈！</p>
+            <div class="question2">
+              <p>您可以通过下方的输入框提交您的建议或是疑问，我们会在第一时间处理。</p>
+              <p>感谢您帮助我们越变越好！</p>
+              <div class="send">
+                <form action="/submit-form" method="post">
+                  <input type="text" name="feedback" placeholder="您的建议或疑问" required>
+                  <button type="submit">发送</button>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="mailbox">
+            <img src="static/img/mailbox.png">
+          </div>
+        </div>
+      </div>
+      <div class="vector1">
+        <img src="static/img/Vector%201.png">
+      </div>
+      <div class="block2">
+        <div class="content2">
+          <div class="logo">
+            <img src="static/img/logo_1.png">
+            <img src="static/img/contact.png">
+          </div>
+          <div class="word">
+            <div>
+              <p>关于我们</p>
+              <span>发展历程</span>
+              <span>企业合作</span>
+            </div>
+            <div>
+              <p>开源项目</p>
+              <span>网站代码</span>
+              <span>认知训练</span>
+            </div>
+          </div>
+        </div>
+        <div class="content3">
+          <p>© 2024 MBBGA | Built by Zhejiang University</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
